@@ -2,5 +2,32 @@
 <body>
 <h1>Hey! You can sign in with facebook!!</h1>
 <p>What who are you?</p>
+<input type="text" id="nums">
+<input type="button" id="face" value="push me"><br>
+<%=Number.all%>
 </body>
 </html>
+
+
+<script type="text/javascript" charset="utf-8">
+	$("#face").click(function(){
+		$.ajax({
+			url: "/numbers/",
+			type: "POST",
+			data: {
+				"remote" : true,
+				"number" : {
+					"calc": $("#nums").val()	
+				},
+				
+			},
+			success: function() {
+				alert("it worked!!");
+			},
+			error: function(jqXHR) {
+				console.log(jqXHR);
+			}
+			
+		});
+	});
+</script>

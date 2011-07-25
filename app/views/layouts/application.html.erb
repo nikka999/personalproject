@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Check it out!! you can sign in with Facebook! </title>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" %>
+	<title>Check it out!! you can sign in with Facebook! </title>
 </head>
 <body>
 
@@ -16,5 +17,6 @@
     <% end %>
   </div>
 </div>
+<%=yield%>
 </body>
 </html>
