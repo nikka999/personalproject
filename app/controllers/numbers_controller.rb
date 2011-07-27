@@ -11,4 +11,8 @@ class NumbersController < ApplicationController
       }, :status => 300    
     end
   end
+  
+  def index
+    render :json => (Number.all)    
+  end
 end

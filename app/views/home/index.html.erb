@@ -7,11 +7,15 @@
 </div>
 <input type="text" id="nums">
 <input type="button" id="face" value="push me"><br>
+<input type="button" id="display" value="display"><br>
+<div id="showing">	
+</div>
 </body>
 </html>
 
 
 <script type="text/javascript" charset="utf-8">
+var PopArr = null;
 	$("#face").click(function(){
 		$.ajax({
 			url: "/numbers/",
@@ -30,6 +34,24 @@
 				console.log(jqXHR);
 			}
 			
+		});
+	});
+	
+	$("#display").click(function(){
+		$.ajax({
+			url: "/numbers/",
+			type: "GET",
+			success: function(data) {
+				// for (i in data) {
+				// 	console.log(data[i]);
+				// 	PopArr[i] = data[i].calc; 				
+				// }
+				PopArr = data;  
+				// console.log(PopArr);
+				var l = PopArr.length - 1;
+				$("#showing").text(PopArr[l].number.calc);
+ 
+			},
 		});
 	});
 </script>
