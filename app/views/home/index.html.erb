@@ -21,7 +21,7 @@
 
 <script type="text/javascript" charset="utf-8">
 
-var PopArr = null;
+//var PopArr = null;
 	$("#face").click(function(){
 		$.ajax({
 			url: "/numbers/",
@@ -52,10 +52,10 @@ var PopArr = null;
 				// 	console.log(data[i]);
 				// 	PopArr[i] = data[i].calc; 				
 				// }
-				PopArr = data;  
+				//PopArr = data;  
 				// console.log(PopArr);
-				var l = PopArr.length - 1;
-				$("#showing").text(PopArr[l].number.calc);
+				var l = data.length - 1;
+				$("#showing").text(data[l].number.calc);
  
 			},
 		});
