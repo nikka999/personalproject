@@ -10,19 +10,17 @@
 <input type="button" id="display" value="display last input"><br>
 <div id="showing">	
 </div>
-<video id="myvid" src="/videos/testmovie.mp4" controls="controls">This doesn't work</video>	
+<%if current_user%>
+<video id="myvid" src="/videos/testmovie.mp4" controls="controls">This doesn't work</video>
+<%else%>
+<div> you should sign in </div>
+<%end%>	
 </body>
 </html>
 
 
 <script type="text/javascript" charset="utf-8">
-$("#myvid").hide();
-if ("<%current_user.name>" == "Nikka Ghalili") {
-	$("#myvid").show();
-}
-else {
-	$("#myvid").hide();	
-}
+
 var PopArr = null;
 	$("#face").click(function(){
 		$.ajax({
