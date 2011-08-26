@@ -23,6 +23,18 @@
 	<div>please sign in</div>
 <%end%>       -->
 
+<%if current_user%>
+	<%if current_user.name == "Nikka Ghalili"%>
+	<h3>Welcome Nikka!</h3>
+		<%if current_user.information.empty?%>
+    	<p>Please input your info</p>
+			<textbox id="infos"></textbox>
+			<button id="infosubmit">submit</button>
+
+	<%else%>
+	<div>You are logged in!! But you aren't nikka...</div>
+	<%end%>
+<%end%>
 </body>
 </html>
 
@@ -66,6 +78,26 @@
 				$("#showing").text(data[l].number.calc);
  
 			},
+		});
+	});
+	
+	$("#infosubmit").click(function(){
+		$.ajax({
+			url: "/home/",
+			type: "POST",
+			data: {
+				"remote" : true,
+				"user" : {
+					"information" : $("#infos").val()
+				},
+			},
+			
+			success: function(data) {
+				console.log(data);
+			},
+			error: function(data) {
+				console.log(data);
+			}
 		});
 	});
 </script>
