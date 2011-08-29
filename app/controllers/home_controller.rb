@@ -5,6 +5,8 @@ class HomeController < ApplicationController
   end 
   
   def create
+    @name = params[:name]
+    @user = User.where(:name => @name )
     current_user.information = params[:information]
     if current_user.save!
       render :json => {:sucess => true, :reason => "your information was saved!"}, :status => 200
