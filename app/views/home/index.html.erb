@@ -24,13 +24,12 @@
 <%end%>       -->
 
 <%if current_user%>
+	<input type="hidden" id="UserName" value="<%=current_user.name%>">
 	<%if current_user.name == "Nikka Ghalili"%>
 	<h3>Welcome Nikka!</h3>
-		<%if current_user.information.empty?%>
     	<p>Please input your info</p>
 			<textbox id="infos"></textbox>
 			<button id="infosubmit">submit</button>
-    <%end%>
 	<%else%>
 	<div>You are logged in!! But you aren't nikka...</div>
 	<%end%>
@@ -88,7 +87,7 @@
 			data: {
 				"remote" : true,
 				"user" : {
-					"name" : <%= current_user.name%>
+					"name" : $("#UserName").val,
 					"information" : $("#infos").val()
 				},
 			},
